@@ -1,10 +1,10 @@
-import { task } from "hardhat/config"
+const { task } = require("hardhat/config")
 /**
  Example:
  hardhat balance --account 1
  */
 task("balance", "Prints an account's balance")
-  .addParam<string>("account", "The account's address")
+  .addParam("account", "The account's address")
   .setAction(async (taskArgs, { ethers }) => {
     const accountIndex = taskArgs.account
     console.info(`account index: ${accountIndex}`)

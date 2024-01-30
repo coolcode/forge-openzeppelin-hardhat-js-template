@@ -1,11 +1,10 @@
-import "@nomicfoundation/hardhat-foundry"
-import "@nomicfoundation/hardhat-toolbox"
-import "@typechain/hardhat"
-import { HardhatUserConfig } from "hardhat/config"
+require("@nomicfoundation/hardhat-foundry")
+require("@nomicfoundation/hardhat-toolbox")
+require("@typechain/hardhat")
 
-import "./tasks/Balance"
+require("./tasks/Balance")
 
-const config: HardhatUserConfig = {
+module.exports = {
   solidity: {
     version: "0.8.23",
     settings: {
@@ -13,17 +12,15 @@ const config: HardhatUserConfig = {
         enabled: true,
         runs: 200,
       },
-    }
+    },
   },
   gasReporter: {
     currency: "USD",
     gasPrice: 20,
-    enabled: true
+    enabled: true,
   },
   paths: {
     sources: "./src", // Use ./src rather than ./contracts as Hardhat expects
     cache: "./cache_hardhat", // Use a different cache for Hardhat than Foundry
-  }
+  },
 }
-
-export default config
